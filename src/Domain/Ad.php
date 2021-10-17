@@ -8,15 +8,15 @@ use DateTimeImmutable;
 
 final class Ad
 {
-    public function __construct(
-        private int $id,
-        private String $typology,
-        private String $description,
-        private array $pictures,
-        private int $houseSize,
-        private ?int $gardenSize = null,
-        private ?int $score = null,
-        private ?DateTimeImmutable $irrelevantSince = null,
-    ) {
+    public function __construct($id, $typology, $description, $pictures, $houseSize, $gardenSize, $score, $irrelevantSince)
+    {
+        $this->id = $id;
+        $this->typology=$typology;
+        $this->description=$description;
+        $this->pictures=$pictures;
+        $this->houseSize=$houseSize;
+        $this->gardenSize=$gardenSize;
+        $this->score=$score;
+        $this->irrelevantSince=$irrelevantSince;
     }
 }

@@ -8,15 +8,15 @@ use DateTimeImmutable;
 
 final class QualityAd
 {
-    public function __construct(
-        private int $id,
-        private String $typology,
-        private String $description,
-        private array $pictureUrls,
-        private int $houseSize,
-        private ?int $gardenSize = null,
-        private ?int $score = null,
-        private ?DateTimeImmutable $irrelevantSince = null,
-    ) {
+    public function __construct($id, $typology, $description, $pictureUrls, $houseSize, $gardenSize, $score, $irrelevantSince)
+    {
+        $this->id = $id;
+        $this->typology=$typology;
+        $this->description=$description;
+        $this->pictureUrls=$pictureUrls;
+        $this->houseSize=$houseSize;
+        $this->gardenSize=$gardenSize;
+        $this->score=$score;
+        $this->irrelevantSince=$irrelevantSince;
     }
 }

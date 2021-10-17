@@ -6,13 +6,13 @@ namespace App\Infrastructure\Api;
 
 final class PublicAd
 {
-    public function __construct(
-        private int $id,
-        private String $typology,
-        private String $description,
-        private array $pictureUrls,
-        private int $houseSize,
-        private ?int $gardenSize = null,
-    ) {
+    public function __construct($id, $typology, $description, $pictureUrls, $houseSize, $gardenSize)
+    {
+        $this->id = $id;
+        $this->typology=$typology;
+        $this->description=$description;
+        $this->pictureUrls=$pictureUrls;
+        $this->houseSize=$houseSize;
+        $this->gardenSize=$gardenSize;
     }
 }

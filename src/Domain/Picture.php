@@ -6,10 +6,10 @@ namespace App\Domain;
 
 final class Picture
 {
-    public function __construct(
-        private int $id,
-        private String $url,
-        private String $quality,
-    ) {
+    public function __construct( $id, $url, $quality) {
+        $this->id = $id;
+        $this->url = $url;
+        $this->quality = $quality;
     }
+    
 }
