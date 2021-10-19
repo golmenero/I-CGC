@@ -4,10 +4,36 @@
         <title>Idealista TEST</title>
     </head>
     <body>
+        <h1>Idealista TEST</h1>
+        <h2>Basic List - Display All Ads and Points</h2>
         <ul>
             {% for ad in ads %}
             <li>ID: {{ad.id}} - Points: {{ad.points}}</li>
             {% endfor %}
         </ul>
+
+        <h2>List N.2 - Display Only Relevant Ads</h2>
+        <ul>
+            {% for ad in ads %}
+                {% if ad.points > 40 %}
+                    <li>ID: {{ad.id}} - Points: {{ad.points}}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+        <h2>List N.3 - Display All Ads and Date</h2>
+        <ul>
+            {% for ad in ads %}
+                    <li>ID: {{ad.id}} - Points: {{ad.points}} - Date: {{ad.irrelevantSince|date('Y-m-d')}}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>List N.3 - Display Sorted Ads</h2>
+        <ul>
+            {% for ad in ads|sort((a,b) => a.points <=> b.points) %}
+                    <li>ID: {{ad.id}} - Points: {{ad.points}} </li>
+            {% endfor %}
+        </ul>
+
     </body>
 </html>
