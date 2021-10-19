@@ -1,38 +1,31 @@
 <?php
 namespace App\Controller;
 
-use App\Domain\Evaluator\PictureQE;
+use App\Domain\Evaluator\PointEvaluator;
 use App\Domain\Manager\AdManager;
 use App\Domain\Manager\PictureManager;
 use App\Infrastructure\Persistence\InFileSystemPersistence;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FirstController extends AbstractController
 {
 
     /**
-     * @Route("/results/{ads}", name="results")
-     */
-    public function example($ads): Response
-    {
-        return $this->render('index.html.twig', ['ads' => $ads]);
-    }
-
-    /**
      * @Route("/", name="index")
      */
-    public function prepareEvaluators()
+    public function example()
     {
-        $pictureQE = array(new PictureQE());
+        $pointEvaluator = new PointEvaluator();
 
         $fsp = new InFileSystemPersistence();
         $pictureManager = new PictureManager($fsp);
         $adManager = new AdManager($fsp);
-
-        $ads = $adManager->getAdsExtended($pictureManager);
-
-        return $this->redirectToRoute('results', $ads);
+        
+        //$ads = $adManager->getAdsExtended($pictureManager);
+        $ads = $pointEvaluator->evaluate($adManager->getAdsExtended($pictureManager));
+        
+        return $this->render('index.html.twig', ['ads' => $ads]);
     }
+
 }
