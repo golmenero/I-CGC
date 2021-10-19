@@ -58,4 +58,22 @@ class DescriptionSizeQE implements QualityEvaluator
     }
 }
 
+class DescriptionKeyWordsQE implements QualityEvaluator
+{
+    public function evaluate($ad)
+    {
+        $description = $ad->description;
+        $keywords = array("Luminoso", 'luminoso',
+            'Nuevo', 'nuevo',
+            'Céntrico', 'céntrico',
+            'Reformado', 'reformado',
+            'Ático', 'ático');
+
+        foreach($keywords as $keyword){
+            if(strpos($description,$keyword)){
+                $ad->increasePoints(5);
+            }
+        }
+    }
+}
 
