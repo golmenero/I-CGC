@@ -27,7 +27,7 @@ final class AdManager
         $ads = $this->ifsp->getAds();
 
         foreach($ads as $ad){
-            $ad->pictures = $pictureManager->getPicturesByAdId($ad->id, $this);
+            $ad->setPictures($pictureManager->getPicturesByAdId($ad->getId(), $this));
         }
 
         return $ads;

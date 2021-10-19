@@ -11,16 +11,16 @@ class PictureQE implements QualityEvaluator
 {
     public function evaluate($ad)
     {
-        $size = count($ad->pictures);
+        $size = count($ad->getPictures());
         $points = 0;
 
         if ($size <= 0) {
             $points = -10;
         } else {
-            foreach ($ad->pictures as $picture) {
-                if ($picture->quality == 'HD') {
+            foreach ($ad->getPictures() as $picture) {
+                if ($picture->getQuality() == 'HD') {
                     $points += 20;
-                } else if ($picture->quality == 'SD') {
+                } else if ($picture->getQuality() == 'SD') {
                     $points += 10;
                 }
             }
@@ -34,7 +34,7 @@ class DescriptionTextQE implements QualityEvaluator
 {
     public function evaluate($ad)
     {
-        if (!empty($ad->description))
+        if (!empty($ad->getDescription()))
             $ad->increasePoints(5);
     }
 }
@@ -43,8 +43,8 @@ class DescriptionSizeQE implements QualityEvaluator
 {
     public function evaluate($ad)
     {
-        $length = strlen($ad->description);
-        $typology = $ad->typology;
+        $length = strlen($ad->getDescription());
+        $typology = $ad->getTypology();
 
         if ($typology == 'FLAT') {
             if ($length >= 20 && $length < 50)
@@ -62,7 +62,7 @@ class DescriptionKeyWordsQE implements QualityEvaluator
 {
     public function evaluate($ad)
     {
-        $description = $ad->description;
+        $description = $ad->getDescription();
         $keywords = array(
             "Luminoso", 'luminoso',
             'Nuevo', 'nuevo',
@@ -84,11 +84,11 @@ class CompleteAdQE implements QualityEvaluator
     public function evaluate($ad)
     {
         $complete = false;
-        if (count($ad->pictures) > 0) {
-            $typology = $ad->typology;
-            if (!empty($ad->description) && $ad->houseSize > 0) {
+        if (count($ad->getPictures()) > 0) {
+            $typology = $ad->getTypology();
+            if (!empty($ad->getDescription()) && $ad->getHouseSize() > 0) {
                 if ($typology == 'CHALET') {
-                    if ($ad->gardenSize > 0)
+                    if ($ad->getGardenSize() > 0)
                         // CHALET has to have at least one picture, the size of it's description must be greater than 0 and houseSize and gardenSize must be greater than 0
                         $complete = true;
                 } else if ($typology == "FLAT") {
