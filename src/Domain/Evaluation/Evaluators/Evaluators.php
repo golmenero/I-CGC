@@ -105,3 +105,15 @@ class CompleteAdQE implements QualityEvaluator
             $ad->increasePoints(40);
     }
 }
+
+class PointControllerQE implements QualityEvaluator
+{
+    // We MUST control the Ad Points specifficaly at the end of the assignation
+    public function evaluate($ad)
+    {
+        if ($ad->getPoints() > 100)
+            $ad->setPoints(100);
+        else if ($ad->getPoints() < 0)
+            $ad->setPoints(0);
+    }
+}
