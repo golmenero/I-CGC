@@ -8,7 +8,7 @@ use App\Infrastructure\Persistence\InFileSystemPersistence;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FirstController extends AbstractController
+class AdController extends AbstractController
 {
 
     /**
