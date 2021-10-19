@@ -1,4 +1,7 @@
 <?php
+declare(strict_types=1);
+
+namespace App\Domain\Evaluator;
 
 class PictureQE implements QualityEvaluator
 {
