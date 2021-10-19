@@ -63,17 +63,45 @@ class DescriptionKeyWordsQE implements QualityEvaluator
     public function evaluate($ad)
     {
         $description = $ad->description;
-        $keywords = array("Luminoso", 'luminoso',
+        $keywords = array(
+            "Luminoso", 'luminoso',
             'Nuevo', 'nuevo',
             'Céntrico', 'céntrico',
             'Reformado', 'reformado',
-            'Ático', 'ático');
+            'Ático', 'ático'
+        );
 
-        foreach($keywords as $keyword){
-            if(strpos($description,$keyword)){
+        foreach ($keywords as $keyword) {
+            if (strpos($description, $keyword)) {
                 $ad->increasePoints(5);
             }
         }
     }
 }
 
+class CompleteAdQE implements QualityEvaluator
+{
+    public function evaluate($ad)
+    {
+        $complete = false;
+        if (count($ad->pictures) > 0) {
+            $typology = $ad->typology;
+            if (!empty($ad->description) && $ad->houseSize > 0) {
+                if ($typology == 'CHALET') {
+                    if ($ad->gardenSize > 0)
+                        // CHALET has to have at least one picture, the size of it's description must be greater than 0 and houseSize and gardenSize must be greater than 0
+                        $complete = true;
+                } else if ($typology == "FLAT") {
+                    // FLAT has to have at least one picture, the size of it's description must be greater than 0 and houseSize must be greater than 0
+                    $complete = true;
+                }
+            }
+            if ($typology == "GARAGE") {
+                // GARAGE has to have at least one picture
+                $complete = true;
+            }
+        }
+        if ($complete)
+            $ad->increasePoints(40);
+    }
+}
