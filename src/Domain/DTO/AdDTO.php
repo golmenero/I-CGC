@@ -6,7 +6,7 @@ namespace App\Domain;
 
 use DateTimeImmutable;
 
-final class AdDTO
+final class AdDTO extends BasicDTO
 {
     public function __construct($id, $typology, $description, $pictures, $houseSize, $gardenSize, $score, $irrelevantSince)
     {
