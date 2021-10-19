@@ -19,6 +19,6 @@ class PictureQE implements QualityEvaluator
             }
         }
 
-        return $points;
+        $ads->increasePoints($points);
     }
 }

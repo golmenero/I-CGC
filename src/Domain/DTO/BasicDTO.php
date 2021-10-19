@@ -15,4 +15,8 @@ final class BasicDTO
     public function setPoints($newP){
         $this->points = $newP;
     }
+
+    public function increasePoints($newP){
+        $this->points += $newP;
+    }
 }
