@@ -4,6 +4,9 @@ namespace Domain\Evaluation\Evaluators;
 
 interface QualityEvaluator
 {
+    /**
+     * 
+     */
     public function evaluate($ad);
 }
 

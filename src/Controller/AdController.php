@@ -1,10 +1,10 @@
 <?php
 namespace App\Controller;
 
-use App\Domain\Evaluator\PointEvaluator;
-use App\Domain\Manager\AdManager;
-use App\Domain\Manager\PictureManager;
-use App\Infrastructure\Persistence\InFileSystemPersistence;
+use Domain\Evaluator\PointEvaluator;
+use Domain\Manager\AdManager;
+use Domain\Manager\PictureManager;
+use InFileSystemPersistence;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 

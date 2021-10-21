@@ -11,15 +11,25 @@ use Domain\Evaluation\Evaluators\DescriptionSizeQE;
 use Domain\Evaluation\Evaluators\DescriptionTextQE;
 use Domain\Evaluation\Evaluators\PointControllerQE;
 
+/**
+ * Class PointEvaluator
+ * This Class initiates all the evaluators that we want to apply to the different.
+ */
 class PointEvaluator
 {
     private $evaluators;
 
+    /**
+     * The constructor for the class PointEvaluator
+     */
     public function __construct()
     {
         $this->loadEvaluators();
     }
 
+    /**
+     * This function loads all the evaluators that we wantt to apply to the ads
+     */
     public function loadEvaluators()
     {
         $this->evaluators = array(
@@ -32,6 +42,11 @@ class PointEvaluator
         );
     }
 
+    /**
+     * This function evaluates all the ads depending on the Evaluators loaded. Updates parameter 'points' of all ads.
+     * @param mixed $ads Array[ads] The ads previous to evaluation
+     * @return Array[AdDTO] The ads evaluates
+     */
     public function evaluate($ads)
     {
         foreach ($ads as $ad) {
