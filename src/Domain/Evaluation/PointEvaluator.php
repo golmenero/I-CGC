@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Evaluator;
+namespace Domain\Evaluator;
 
-use App\Domain\Evaluator\Evaluators\CompleteAdQE;
-use App\Domain\Evaluator\Evaluators\DescriptionKeyWordsQE;
-use App\Domain\Evaluator\Evaluators\DescriptionSizeQE;
-use App\Domain\Evaluator\Evaluators\DescriptionTextQE;
-use App\Domain\Evaluator\Evaluators\PictureQE;
-use App\Domain\Evaluator\Evaluators\PointControllerQE;
+use Domain\Evaluation\Evaluators\PictureQE;
+use Domain\Evaluation\Evaluators\CompleteAdQE;
+use Domain\Evaluation\Evaluators\DescriptionKeyWordsQE;
+use Domain\Evaluation\Evaluators\DescriptionSizeQE;
+use Domain\Evaluation\Evaluators\DescriptionTextQE;
+use Domain\Evaluation\Evaluators\PointControllerQE;
 
 class PointEvaluator
 {

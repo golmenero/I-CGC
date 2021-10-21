@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Persistence;
-
-use App\Domain\DTO\AdDTO;
-use App\Domain\DTO\PictureDTO;
+use Domain\DTO\AdDTO;
+use Domain\DTO\PictureDTO;
 
 final class InFileSystemPersistence
 {

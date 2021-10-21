@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Manager;
+namespace Domain\Manager;
 
-use App\Infrastructure\Persistence\InFileSystemPersistence;
+use InFileSystemPersistence;
 use DateTimeImmutable;
 
 final class AdManager

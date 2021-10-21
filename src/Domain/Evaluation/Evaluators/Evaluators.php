@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Evaluator\Evaluators;
+namespace Domain\Evaluation\Evaluators;
 
 interface QualityEvaluator
 {
