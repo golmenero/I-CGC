@@ -13,7 +13,7 @@ class DescriptionTextQETest extends TestCase
 {
 
     private $descriptionTextQE;
-    private $adDTO, $adDTO1, $adDTO2;
+    private $adDTO, $adDTO1;
 
     public function setUp(): void
     {

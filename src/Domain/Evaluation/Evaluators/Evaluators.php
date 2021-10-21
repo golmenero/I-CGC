@@ -85,7 +85,7 @@ class DescriptionSizeQE implements QualityEvaluator
      */
     public function evaluate($ad)
     {
-        $length = strlen($ad->getDescription());
+        $length = str_word_count($ad->getDescription());
         $typology = $ad->getTypology();
 
         if ($typology == 'FLAT') {
