@@ -27,7 +27,7 @@ class DescriptionKeyWordsQETest extends TestCase
     }
 
     /**
-     * Test id an Ads description has no keywords 
+     * Test if an Ads description has no keywords 
      */
     public function testNoKeyWords(): void
     {
@@ -36,7 +36,7 @@ class DescriptionKeyWordsQETest extends TestCase
     }
 
     /**
-     * Test id an Ads description has one keyword
+     * Test if an Ads description has one keyword
      */
     public function testOneKeyWord(): void
     {
@@ -45,7 +45,7 @@ class DescriptionKeyWordsQETest extends TestCase
     }
 
     /**
-     * Test id an Ads description has multiple keywords
+     * Test if an Ads description has multiple keywords
      */
     public function testMultipleKeyWords(): void
     {
@@ -54,7 +54,7 @@ class DescriptionKeyWordsQETest extends TestCase
     }
 
     /**
-     * Test id an Ads description has all keywords
+     * Test if an Ads description has all keywords
      */
     public function testAllKeyWords(): void
     {
