@@ -5,11 +5,18 @@ declare(strict_types=1);
 use Domain\DTO\AdDTO;
 use Domain\DTO\PictureDTO;
 
+/**
+ * Class InFileSystemPersistence
+ * This class acts as a Database for the System
+ */
 final class InFileSystemPersistence
 {
     private array $ads;
     private array $pictures;
 
+    /**
+     * Constructor for the class InFileSystemPersistence
+     */
     public function __construct()
     {
         $this->ads = array(
@@ -35,11 +42,19 @@ final class InFileSystemPersistence
         );
     }
 
+    /**
+     * Returns the Array of Ads
+     * @return Array[AdDTO]
+     */
     public function getAds()
     {
         return $this->ads;
     }
 
+    /**
+     * Returns the Array of Pictures
+     * @return Array[PictureDTO]
+     */
     public function getPictures()
     {
         return $this->pictures;
