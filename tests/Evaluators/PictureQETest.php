@@ -7,14 +7,17 @@ use PHPUnit\Framework\TestCase;
 
 
 /**
- * [Description PictureQETest]
+ * TestCase PictureQETest
+ * Evaluates The Class PictureQE
  */
-class PictureQETest extends TestCase{
+class PictureQETest extends TestCase
+{
 
     private $pictureQE;
-    private $adDTO, $adDTO1, $adDTO2, $adDTO3, $adDTO4;
+    private $adDTO, $adDTO1, $adDTO2, $adDTO3, $adDTO4, $adDTO5;
 
-    public function setUp():void {
+    public function setUp(): void
+    {
         $this->pictureQE = new PictureQE();
 
         $pDTO1 = new PictureDTO(1, 'https://www.idealista.com/pictures/1', 'SD');
@@ -30,36 +33,57 @@ class PictureQETest extends TestCase{
         $this->adDTO5 = new AdDTO(6, 'FLAT', 'Este piso es una ganga, compra, compra, COMPRA!!!!!', [$pDTO1, $pDTO2, $pDTO3, $pDTO4], 300, null, null, null);
     }
 
-    public function testZeroPictures():void {
+    /**
+     * Test an Ad with 0 Pictures
+     */
+    public function testZeroPictures(): void
+    {
         $this->pictureQE->evaluate($this->adDTO);
         $this->assertEquals($this->adDTO->getPoints(), -10);
     }
 
-    public function testOneHdPicture():void {
+    /**
+     * Test an Ad with one HD Picture
+     */
+    public function testOneHdPicture(): void
+    {
         $this->pictureQE->evaluate($this->adDTO1);
         $this->assertEquals($this->adDTO1->getPoints(), 20);
     }
 
-    public function testOneSdPicture():void {
+    /**
+     * Test an Ad with one SD Picture
+     */
+    public function testOneSdPicture(): void
+    {
         $this->pictureQE->evaluate($this->adDTO2);
         $this->assertEquals($this->adDTO2->getPoints(), 10);
     }
 
-    public function testMultipleHdPictures():void {
+    /**
+     * Test an Ad with multiple HD Pictures
+     */
+    public function testMultipleHdPictures(): void
+    {
         $this->pictureQE->evaluate($this->adDTO3);
         $this->assertEquals($this->adDTO3->getPoints(), 40);
     }
 
-    public function testMultipleSdPictures():void {
+    /**
+     * Test an Ad with multiple SD Pictures
+     */
+    public function testMultipleSdPictures(): void
+    {
         $this->pictureQE->evaluate($this->adDTO4);
         $this->assertEquals($this->adDTO4->getPoints(), 20);
     }
 
-    public function testMixedPictures():void {
+    /**
+     * Test an Ad with mixed Pictures (HD and SD)
+     */
+    public function testMixedPictures(): void
+    {
         $this->pictureQE->evaluate($this->adDTO5);
         $this->assertEquals($this->adDTO5->getPoints(), 60);
     }
-
-
-    //fwrite(STDERR, print_r($this->adDTO, TRUE));
 }

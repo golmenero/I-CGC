@@ -51,7 +51,8 @@ class PointEvaluator
     {
         foreach ($ads as $ad) {
             foreach ($this->evaluators as $evaluator) {
-                $evaluator->evaluate($ad);
+                if ($ad && $evaluator)
+                    $evaluator->evaluate($ad);
             }
         }
 
