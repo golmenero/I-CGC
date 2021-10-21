@@ -8,6 +8,11 @@ use InFileSystemPersistence;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class AdController
+ * This is the main and only controller. It displays all the information of the ads
+ * and renders the view.
+ */
 class AdController extends AbstractController
 {
 
